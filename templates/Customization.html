@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static',filename="favicon.ico") }}">
+
+    <title>短网址生成服务</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename="css/bootstrap.min.css") }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename="cover.css") }}" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">ShortUrl</h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li><a href="{{ url_for('index') }}">Home</a></li>
+                            <li class="active"><a href="{{ url_for('custom') }}">Customization</a></li>
+                            <li><a href="{{ url_for('api') }}">API</a></li>
+                            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="inner cover">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#custom1" data-toggle="tab">
+                        自定义定制</a></li>
+                    <li><a href="#custom2" data-toggle="tab">自定义输入</a></li>
+                </ul>
+
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="custom1">
+                        <div>
+                            <p class="lead">可以为您的短网址选择下列后缀以及长度</p>
+                            <form role="form" method="POST" action="{{ url_for('custom') }}">
+                                <label for="name">后缀选择(此处只开通了第一个域名)</label>
+                                <div class="form-group">
+                                    <div>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="radios" id="optionsRadios1"
+                                                   value="yun.io"
+                                                   checked> yun.io
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="radios" id="optionsRadios2"
+                                                   value="goo0.gl">
+                                            goo0.gl
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="radios" id="optionsRadios3"
+                                                   value="dwz0.cn">
+                                            dwz0.cn
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="radios" id="optionsRadios4"
+                                                   value="t0.cn"> t0.cn
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="radios" id="optionsRadios5"
+                                                   value="j0.cn">
+                                            j0.cn
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="radios" id="optionsRadios6"
+                                                   value="bit0.ly">
+                                            bit0.ly
+                                        </label>
+                                    </div>
+
+                                    <br>
+
+                                    <label for="name">长度选择</label>
+                                    <select name="selectlength" class="form-control">
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>10</option>
+                                        <option>12</option>
+                                        <option>14</option>
+                                        <option>16</option>
+                                        <option>18</option>
+                                        <option>20</option>
+                                        <option>22</option>
+                                        <option>24</option>
+                                    </select>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <input type="text" name="custom_url" class="form-control" placeholder="在此输入想压缩的长链接">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-default" type="submit">生成短链接</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="custom2">
+                        <p class="lead">可以输入您自定义的短链接</p>
+                        <form role="form" method="POST" action="{{ url_for('custom') }}">
+                            <div class="form-group">
+                                <input type="text" name="url1" class="form-control" placeholder="在此输入想压缩的长链接">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="url2" class="form-control" placeholder="在此输入自定义的短链接">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-default" type="submit">生成短链接</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a
+                            href="https://github.com/YunLambert">@YunLambert</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static',filename="jquery.min.js") }}"></script>
+<script src="{{ url_for('static',filename="js/bootstrap.min.js") }}"></script>
+<script>
+    $('#myTab a:last').tab('show')
+</script>
+</body>
+</html>
