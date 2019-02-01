@@ -78,4 +78,4 @@ def db_query_shorturl(url2):
         conn.close()
 
 # db_add('https://www.cnblogs.com/gavinyyb/p/6413467.html','https://yun.io/VfIazv',1)
-db_query_longurl('https://www.cnblogs.com/gavinyyb/p/6413467.html')
+# db_query_longurl('https://www.cnblogs.com/gavinyyb/p/6413467.html')
