@@ -1,16 +1,18 @@
 import datetime
-import MySQLdb
+#import MySQLdb
 import pymysql.cursors
+import pymysql
+
 
 def get_conn():
     try:
-        conn = MySQLdb.connect(
+        conn = pymysql.connect(
             host='127.0.0.1',
             port=3306,
             user='root',
             password='root',
             db='ShortUrl',
-            charset='utf8')
+            charset='utf8')   # here need to change database to 'UTF-8' charset.
     except MySQLdb.Error as e:
         print("Error %d: %s" % (e.args[0], e.args[1]))
     return conn
@@ -76,4 +78,4 @@ def db_query_shorturl(url2):
         conn.close()
 
 # db_add('https://www.cnblogs.com/gavinyyb/p/6413467.html','https://yun.io/VfIazv',1)
-# db_query_longurl('https://www.cnblogs.com/gavinyyb/p/6413467.html')
+db_query_longurl('https://www.cnblogs.com/gavinyyb/p/6413467.html')
