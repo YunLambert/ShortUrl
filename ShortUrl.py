@@ -22,7 +22,7 @@ def index():
                 "result": short_url + "is already a short url!"
             }
             data = _data
-        else:
+        elif response.status_code==200:
             res, temp = model.db_query_longurl(short_url)
             if res != 0:  # 数据库中已经有对应长链接的短链接，直接返回即可
                 _data = {
@@ -38,7 +38,7 @@ def index():
                     for i in range(0, 3):  # 去MD5的4个字段值分别尝试
                         if res2 == 0:
                             break
-                        url_t = "https://yun.io/" + hashlib.get_hash_key(short_url)[i]
+                        url_t = "yunlambert.top/" + hashlib.get_hash_key(short_url)[i]
                         res2,g = model.db_query_shorturl(url_t)
                     while (res2 != 0):  # 如果MD5的4个字段值都不满足的话，更换url进行操作
                         url_t = hashlib.get_short_url(url2)
@@ -55,6 +55,12 @@ def index():
                     }
                     model.db_add(short_url, url2, 0)
                     data = _data
+        else:
+            _data = {
+                "long_url": short_url,
+                "result": "The long url you given is unreachable, please click here to check the origin url."
+            }
+            data = _data
         return render_template('result0.html', data=data)
     return render_template("index.html")
 
@@ -121,7 +127,7 @@ def contact():
 
 @app.route('/<name>')
 def match_short_url(name):
-    shorturl="https://yun.io/"+name
+    shorturl="yunlambert.top/"+name
     res,g=model.db_query_shorturl(shorturl)
     if res!=0:
         return redirect(g)

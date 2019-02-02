@@ -37,7 +37,7 @@ def get_hash_key(long_url):
 
 def get_short_url(s):
     i = random.randint(0, 3)
-    s = "https://yun.io/" + get_hash_key(s)[i]
+    s = "yunlambert.top/" + get_hash_key(s)[i]
     return s
 
 

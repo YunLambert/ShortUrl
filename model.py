@@ -13,7 +13,7 @@ def get_conn():
             password='root',
             db='ShortUrl',
             charset='utf8')   # here need to change database to 'UTF-8' charset.
-    except MySQLdb.Error as e:
+    except pymysql.Error as e:
         print("Error %d: %s" % (e.args[0], e.args[1]))
     return conn
 
