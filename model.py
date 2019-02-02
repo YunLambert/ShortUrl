@@ -69,7 +69,12 @@ def db_query_shorturl(url2):
         #print(sql)
         rest=cursor.execute(sql)
         print(rest)
-        return rest
+        x = ''
+        if rest != 0:
+            row = cursor.fetchone()
+            x = row[1]
+            print(row[1])
+        return rest, x
     except Exception as e:
         # 错误回滚
         print("something wrong:%s" % e)
