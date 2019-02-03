@@ -44,7 +44,7 @@ def get_short_url(s):
 def get_short_url_custom(s, n, x):
     t = get_hash_key(s)
     total = t[0] + t[1] + t[2] + t[3]
-    s = "https://" + x + "/" + total[:n]  # n的范围为6-24
+    s =x + "/" + total[:n]  # n的范围为6-24
     return s
 
 # if __name__ == '__main__':

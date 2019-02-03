@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 import requests
 from shorturl import hashlib
 import model
+import json
+import re
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "12345678"
@@ -22,7 +24,7 @@ def index():
                 "result": short_url + "is already a short url!"
             }
             data = _data
-        elif response.status_code==200:
+        elif response.status_code == 200:
             res, temp = model.db_query_longurl(short_url)
             if res != 0:  # 数据库中已经有对应长链接的短链接，直接返回即可
                 _data = {
@@ -32,17 +34,17 @@ def index():
                 data = _data
             else:  # 数据库中没有对应长链接，生成短连接，并判断短链接是否被占用
                 url2 = hashlib.get_short_url(short_url)
-                res2,g = model.db_query_shorturl(url2)
+                res2, g = model.db_query_shorturl(url2)
                 if res2 != 0:  # 短链接被占用，需要生成新的
                     url_t = ""
                     for i in range(0, 3):  # 去MD5的4个字段值分别尝试
                         if res2 == 0:
                             break
                         url_t = "yunlambert.top/" + hashlib.get_hash_key(short_url)[i]
-                        res2,g = model.db_query_shorturl(url_t)
+                        res2, g = model.db_query_shorturl(url_t)
                     while (res2 != 0):  # 如果MD5的4个字段值都不满足的话，更换url进行操作
                         url_t = hashlib.get_short_url(url2)
-                        res2,g = model.db_query_shorturl(url_t)
+                        res2, g = model.db_query_shorturl(url_t)
                     _data = {
                         "long_url": url2,
                         "result": url_t
@@ -127,12 +129,125 @@ def contact():
 
 @app.route('/<name>')
 def match_short_url(name):
-    shorturl="yunlambert.top/"+name
-    res,g=model.db_query_shorturl(shorturl)
-    if res!=0:
+    shorturl = "yunlambert.top/" + name
+    res, g = model.db_query_shorturl(shorturl)
+    if res != 0:
         return redirect(g)
     else:
+        print("no")
         return render_template('404.html'), 404
+
+
+@app.route('/api?<name>')
+def api_json_custom(name):
+    m = name.split("&&")
+    data = {}
+    if m.size() == 1:
+        short_url = re.match(r'url=(.*)', name)
+        print(short_url)
+        response = requests.get(short_url)
+        if response.status_code == 302:
+            _data = {
+                "long_url": short_url,
+                "result": short_url + "is already a short url!"
+            }
+            data = _data
+        elif response.status_code == 200:
+            res, temp = model.db_query_longurl(short_url)
+            if res != 0:  # 数据库中已经有对应长链接的短链接，直接返回即可
+                _data = {
+                    "long_url": short_url,
+                    "result": temp
+                }
+                data = _data
+            else:  # 数据库中没有对应长链接，生成短连接，并判断短链接是否被占用
+                url2 = hashlib.get_short_url(short_url)
+                res2, g = model.db_query_shorturl(url2)
+                if res2 != 0:  # 短链接被占用，需要生成新的
+                    url_t = ""
+                    for i in range(0, 3):  # 去MD5的4个字段值分别尝试
+                        if res2 == 0:
+                            break
+                        url_t = "yunlambert.top/" + hashlib.get_hash_key(short_url)[i]
+                        res2, g = model.db_query_shorturl(url_t)
+                    while (res2 != 0):  # 如果MD5的4个字段值都不满足的话，更换url进行操作
+                        url_t = hashlib.get_short_url(url2)
+                        res2, g = model.db_query_shorturl(url_t)
+                    _data = {
+                        "long_url": url2,
+                        "result": url_t
+                    }
+                    data = _data
+                else:  # 短链接没有被占用
+                    _data = {
+                        "long_url": short_url,
+                        "result": url2
+                    }
+                    model.db_add(short_url, url2, 0)
+                    data = _data
+        else:
+            _data = {
+                "long_url": short_url,
+                "result": "The long url you given is unreachable, please click here to check the origin url."
+            }
+            data = _data
+    if m.size() == 2:
+        url1 = re.match(r"url1=(.*)", m[0])
+        url2 = re.match(r"url2=(.*)", m[1])
+        res, temp = model.db_query_longurl(url1)
+        if (res != 0):
+            _data = {
+                "long_url": url1,
+                "result": "该网址已有短链接:" + temp
+            }
+            data = _data
+        else:
+            res2, g = model.db_query_shorturl(url2)
+            if res2 != 0:
+                _data = {
+                    "long_url": url1,
+                    "result": "该短链接已被占用:" + g
+                }
+                data = _data
+            else:
+                _data = {
+                    "long_url": url1,
+                    "result": url2
+                }
+                model.db_add(url1, url2, 1)
+                data = _data
+
+    if m.size() == 3:
+        custom_url = re.match(r"url=(.*)", m[0])
+        radios = re.match(r"domain=(.*)", m[1])
+        select = re.match(r"length=(.*)", m[2])
+
+        s = hashlib.get_short_url_custom(custom_url, int(select), radios)
+
+        res, temp = model.db_query_longurl(custom_url)
+        if (res != 0):
+            _data = {
+                "long_url": custom_url,
+                "result": "该网址已有短链接:" + temp
+            }
+            data = _data
+        else:
+            res2, g = model.db_query_shorturl(s)
+            if res2 != 0:
+                _data = {
+                    "long_url": custom_url,
+                    "result": "该短链接已被占用:" + g
+                }
+                data = _data
+            else:
+                _data = {
+                    "long_url": custom_url,
+                    "result": s
+                }
+                model.db_add(custom_url, s, 1)
+                data = _data
+    return json.dumps(data)
+
 
 @app.errorhandler(404)
 def page_not_found(e):
