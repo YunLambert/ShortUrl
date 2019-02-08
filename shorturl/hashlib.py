@@ -37,7 +37,8 @@ def get_hash_key(long_url):
 
 def get_short_url(s):
     i = random.randint(0, 3)
-    s = "yunlambert.top/" + get_hash_key(s)[i]
+    # s = "yunlambert.top/" + get_hash_key(s)[i]
+    s = "47.106.239.198/" + get_hash_key(s)[i]
     return s
 
 
