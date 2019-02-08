@@ -38,14 +38,14 @@ def get_hash_key(long_url):
 def get_short_url(s):
     i = random.randint(0, 3)
     # s = "yunlambert.top/" + get_hash_key(s)[i]
-    s = "47.106.239.198/" + get_hash_key(s)[i]
+    s = "http://47.106.239.198/" + get_hash_key(s)[i]
     return s
 
 
 def get_short_url_custom(s, n, x):
     t = get_hash_key(s)
     total = t[0] + t[1] + t[2] + t[3]
-    s =x + "/" + total[:n]  # n的范围为6-24
+    s ="http://"+ x + "/" + total[:n]  # n的范围为6-24
     return s
 
 # if __name__ == '__main__':

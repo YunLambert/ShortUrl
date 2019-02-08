@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff2b6aa7-cc90-4fca-b200-b61346e16dc1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Test/test.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/ShortUrl.py" afterPath="$PROJECT_DIR$/ShortUrl.py" />
-      <change beforePath="$PROJECT_DIR$/model.py" afterPath="$PROJECT_DIR$/model.py" />
       <change beforePath="$PROJECT_DIR$/shorturl/hashlib.py" afterPath="$PROJECT_DIR$/shorturl/hashlib.py" />
-      <change beforePath="$PROJECT_DIR$/templates/Customization.html" afterPath="$PROJECT_DIR$/templates/Customization.html" />
-      <change beforePath="$PROJECT_DIR$/templates/analysis.html" afterPath="$PROJECT_DIR$/templates/analysis.html" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShortUrl.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShortUrl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ShortUrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="794">
-              <caret line="289" column="87" lean-forward="false" selection-start-line="289" selection-start-column="87" selection-end-line="289" selection-end-column="87" />
+            <state relative-caret-position="3211">
+              <caret line="352" column="34" lean-forward="false" selection-start-line="352" selection-start-column="34" selection-end-line="352" selection-end-column="34" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -44,8 +37,8 @@
       <file leaf-file-name="analysis.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/analysis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+            <state relative-caret-position="114">
+              <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -54,7 +47,7 @@
       <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
+            <state relative-caret-position="1649">
               <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -72,8 +65,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1919">
-              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+            <state relative-caret-position="19">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="e#15#30#0" expanded="true" />
               </folding>
@@ -111,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hashlib.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hashlib.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shorturl/hashlib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="490">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -152,11 +145,11 @@
         <option value="$PROJECT_DIR$/Test/__init__.py" />
         <option value="$PROJECT_DIR$/Test/cases.py" />
         <option value="$PROJECT_DIR$/model.py" />
-        <option value="$PROJECT_DIR$/ShortUrl.py" />
-        <option value="$PROJECT_DIR$/shorturl/hashlib.py" />
         <option value="$PROJECT_DIR$/templates/Customization.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/Test/test.py" />
+        <option value="$PROJECT_DIR$/ShortUrl.py" />
+        <option value="$PROJECT_DIR$/shorturl/hashlib.py" />
       </list>
     </option>
   </component>
@@ -166,7 +159,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="71" />
     <option name="y" value="20" />
     <option name="width" value="1096" />
@@ -395,7 +388,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="71" y="20" width="1096" height="720" extended-state="1" />
+    <frame x="71" y="20" width="1096" height="720" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -783,17 +776,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/analysis.html">
+    <entry file="file://$PROJECT_DIR$/Test/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="19">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shorturl/hashlib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
+        <state relative-caret-position="1649">
           <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -807,32 +812,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/analysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ShortUrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="289" column="87" lean-forward="false" selection-start-line="289" selection-start-column="87" selection-end-line="289" selection-end-column="87" />
+        <state relative-caret-position="3211">
+          <caret line="352" column="34" lean-forward="false" selection-start-line="352" selection-start-column="34" selection-end-line="352" selection-end-column="34" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1919">
-          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shorturl/hashlib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

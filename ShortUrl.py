@@ -41,7 +41,7 @@ def index():
                         if res2 == 0:
                             break
                         # url_t = "yunlambert.top/" + hashlib.get_hash_key(short_url)[i]
-                        url_t = "47.106.239.198/" + hashlib.get_hash_key(short_url)[i]
+                        url_t = "http://47.106.239.198/" + hashlib.get_hash_key(short_url)[i]
                         res2, g = model.db_query_shorturl(url_t)
                     while (res2 != 0):  # 如果MD5的4个字段值都不满足的话，更换url进行操作
                         url_t = hashlib.get_short_url(url2)
@@ -131,7 +131,7 @@ def contact():
 @app.route('/<name>')
 def match_short_url(name):
     # shorturl = "yunlambert.top/" + name
-    shorturl="47.106.239.198/"+name
+    shorturl="http://47.106.239.198/"+name
     res, g = model.db_query_shorturl(shorturl)
     if res != 0:
         return redirect(g)
@@ -171,7 +171,7 @@ def api_test():
                         if res2 == 0:
                             break
                         # url_t = "yunlambert.top/" + hashlib.get_hash_key(short_url)[i]
-                        url_t="47.106.239.198/"+hashlib.get_hash_key(short_url)[i]
+                        url_t="http://47.106.239.198/"+hashlib.get_hash_key(short_url)[i]
                         res2, g = model.db_query_shorturl(url_t)
                     while (res2 != 0):  # 如果MD5的4个字段值都不满足的话，更换url进行操作
                         url_t = hashlib.get_short_url(url2)
@@ -267,7 +267,7 @@ def api_json_custom(name):
                         if res2 == 0:
                             break
                         # url_t = "yunlambert.top/" + hashlib.get_hash_key(short_url)[i]
-                        url_t = "47.106.239.198/" + hashlib.get_hash_key(short_url)[i]
+                        url_t = "http://47.106.239.198/" + hashlib.get_hash_key(short_url)[i]
                         res2, g = model.db_query_shorturl(url_t)
                     while (res2 != 0):  # 如果MD5的4个字段值都不满足的话，更换url进行操作
                         url_t = hashlib.get_short_url(url2)
