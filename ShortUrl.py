@@ -19,6 +19,7 @@ def index():
         # print(short_url)
         response = requests.get(short_url)
         if response.status_code == 302:
+            print("redirect!")
             _data = {
                 "long_url": short_url,
                 "result": short_url + "is already a short url!"

@@ -59,7 +59,7 @@ class TestMethod(unittest.TestCase):
         print("Test3:传入自定义新长url与自定义短url:")
         data = {
             'url1': "https://blog.csdn.net/zhangxiaoxiang/article/details/835879",   # 已有的长链接
-            'url2':"47.106.239.198/aaaaaaa"
+            'url2':"http://47.106.239.198/aaaaaaa"
         }
         res=local_send_post(data)
         print(res)
@@ -83,22 +83,18 @@ class TestMethod(unittest.TestCase):
         print(res)
 
     def test_06(self):
-        print("Test6:访问短url 至 相应的长url(本地):")
-        res = requests.post(url="127.0.0.1/QAyAiA")
+        print("Test6:访问短url 至 相应的长url:")
+        res = requests.post(url="http://47.106.239.198/IAeeyv")
         self.assertEqual(res.status_code, 200, "测试失败！")
 
     def test_07(self):
-        print("Test7:访问短url 至 相应的长url(线上):")
-        res = requests.post(url="47.106.239.198/QAyAiA")
-        self.assertEqual(res.status_code, 200, "测试失败！")
-
-    def test_08(self):
-        print("Test8:传入短url 返回 已经为短链接报错信息:")
+        print("Test7:传入短url 返回 已经为短链接报错信息:")
         data = {
-            'url': "http://t.im/bcxt",
+            'url': "http://47.106.239.198/IAeeyv",
         }
         res = local_send_post(data)
         print(res["result"])
+
 
 if __name__ == "__main__":
     unittest.main()
